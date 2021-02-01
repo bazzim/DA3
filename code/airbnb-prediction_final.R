@@ -226,24 +226,41 @@ modellev8 <- paste0(" ~ ",paste(c(basic_lev,basic_add,reviews,poly_lev,X1,X2,ame
 # Separate hold-out set #
 #################################
 
-# create a holdout set (20% of observations)
-smp_size <- floor(0.2 * nrow(data))
+# # create a holdout set (20% of observations)
+# smp_size <- floor(0.2 * nrow(data))
+# 
+# # Set the random number generator: It will make results reproducable
+# set.seed(20180124)
+# 
+# # create ids:
+# # 1) seq_len: generate regular sequences
+# # 2) sample: select random rows from a table
+# holdout_ids <- sample(seq_len(nrow(data)), size = smp_size)
+# data$holdout <- 0
+# data$holdout[holdout_ids] <- 1
+# 
+# #Hold-out set Set
+# data_holdout <- data %>% filter(holdout == 1)
+# 
+# #Working data set
+# data_work <- data %>% filter(holdout == 0)
 
-# Set the random number generator: It will make results reproducable
+
+
 set.seed(20180124)
 
-# create ids:
-# 1) seq_len: generate regular sequences
-# 2) sample: select random rows from a table
-holdout_ids <- sample(seq_len(nrow(data)), size = smp_size)
-data$holdout <- 0
-data$holdout[holdout_ids] <- 1
+# First pick a smaller than usual training set so that models run faster and check if works
+# If works, start anew without these two lines
 
-#Hold-out set Set
-data_holdout <- data %>% filter(holdout == 1)
+# try <- createDataPartition(data$price, p = 0.2, list = FALSE)
+#data <- data[try, ]
 
-#Working data set
-data_work <- data %>% filter(holdout == 0)
+work_indices <- as.integer(createDataPartition(data$price, p = 0.8, list = FALSE))
+data_work <- data[work_indices, ]
+data_holdout <- data[-work_indices, ]
+
+dim(data_work)
+dim(data_holdout)
 
 
 ##############################
@@ -856,4 +873,10 @@ kable(x = result_5, format = "latex", digits = 3, booktabs=TRUE, linesep = "") %
     cat(.,file= paste0(output,"horse_race_of_models_houldout_rmse.tex"))
   
 ############################################################
+# CV RMSE & Holdout RMSE in one table
+
+table_summary <- add_column( result_4, result_5)
+
+kable(x = table_summary, format = "latex", digits = 3, booktabs=TRUE, linesep = "") %>%
+  cat(.,file= paste0(output,"horse_race_of_models_houldout_and_CV_rmse.tex"))
   
