@@ -1,7 +1,7 @@
 # DA3 Assignment 1 
 
 
-### Team member: Bazzi, Mariam and Stahl, Tamas
+### Team members: Bazzi, Mariam and Stahl, Tamas
 
 This repository contains folders for the first assignment in Data Analysis 3. The main aim of this project is to predict prices of Airbnb listings in Berlin by exploring predictors that may influence the price.
 
