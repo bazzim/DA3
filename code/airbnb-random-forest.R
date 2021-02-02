@@ -619,3 +619,12 @@ kable(x = result_5, format = "latex", digits = 3, booktabs=TRUE, linesep = "") %
   cat(.,file= paste0(output,"horse_race_of_models_houldout_rmse.tex"))
 
 ############################################################
+library(knitr)
+table_summary <- add_column( result_4, result_5)
+
+kable(x = table_summary, format = "latex", digits = 3, booktabs=TRUE, linesep = "") %>%
+  cat(.,file= paste0(output,"horse_race_of_models_houldout_and_CV_rmse.tex"))
+
+
+
+
