@@ -789,7 +789,7 @@ We added a CART model for comparison with random forest and Lasso. Random forest
 
 
 ## External Validity
-  Since the data set was scraped in December 2020, prices could have changed since then. Thus, affecting the results at the end. Therefore, our results may not be generalizable to the population. If, for instance, the data set was updated on a weekly basis, then this could have provided a higher external validity. 
+  Since the data set was scraped in December 2020, prices could have fluctuated since then. Thus, affecting the results at the end. Therefore, our results may not be generalizable to the population. If, for instance, the data set was updated on a weekly basis, then this could have provided a higher external validity. 
   
 ## Conclusion
 
