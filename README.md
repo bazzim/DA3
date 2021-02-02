@@ -33,6 +33,6 @@ Processing and preparing data for analysis
 3. airbnb-prediction_final.R
 Model building, analysis and prediction using different models
 
-4. berlin_prediction.Rmd
+4. berlin_prediction_pdf_final.Rmd
 R markdown for model building, analysis and prediction using different models
 
