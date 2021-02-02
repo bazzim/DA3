@@ -20,7 +20,7 @@ Data was publicly sourced from [Inside Airbnb](http://insideairbnb.com/get-the-d
 	3. airbnb_berlin_workfile_adj.csv contains adjusted training data used for prediction
 	
 
-### Codes
+### Code
 
 This is to acknowledge the code used was primarily taken from Data Analysis for Business, Economics, and Policy by Gabor Bekes and  Gabor Kezdi.
 
